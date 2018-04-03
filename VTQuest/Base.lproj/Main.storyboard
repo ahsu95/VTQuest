@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bqP-Yk-fhH">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Geocoding-->
+        <scene sceneID="cdR-QL-DNN">
+            <objects>
+                <navigationController id="uGj-jf-N1H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Geocoding" image="TabBarIcon-Geocoding" id="an3-Wk-XLP"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jZW-C8-NXs">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xtq-qz-aUd" kind="relationship" relationship="rootViewController" id="UFA-4J-Cfb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lck-lD-t3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="394"/>
+        </scene>
+        <!--Foward Geocoding-->
+        <scene sceneID="rsN-b2-4ad">
+            <objects>
+                <viewController id="Xtq-qz-aUd" customClass="GeocodingViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rkM-a2-Fev" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gik-ky-piX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Foward Geocoding" id="ue5-A3-Cfn"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected Map Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNW-1S-jiV">
+                                <rect key="frame" x="10" y="74" width="300" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RKZ-1a-EN9">
+                                <rect key="frame" x="20" y="103" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter &quot;address, &quot;city&quot;, &quot;country&quot;, or a landmark name to show on map:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byD-6J-lK2">
+                                <rect key="frame" x="10" y="173" width="300" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your query here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEU-Lv-DrH">
+                                <rect key="frame" x="10" y="215" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="Xtq-qz-aUd" eventType="editingDidEndOnExit" id="uTj-Xx-hGE"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-3b-K5Q">
+                                <rect key="frame" x="10" y="335" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show the Address on Map"/>
+                                <connections>
+                                    <action selector="showAddressOnMap:" destination="Xtq-qz-aUd" eventType="touchUpInside" id="mRq-K6-NVn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="MWk-D9-5S2"/>
+                        <connections>
+                            <action selector="backgroundTouch:" destination="Xtq-qz-aUd" eventType="touchDown" id="fRT-jD-2of"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Foward Geocoding" id="wKL-4F-djz"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="QEU-Lv-DrH" id="DKz-hw-wVz"/>
+                        <outlet property="mapTypeSegmentedControl" destination="RKZ-1a-EN9" id="VAv-xj-CFq"/>
+                        <segue destination="Az4-Pc-235" kind="show" identifier="Address" id="iAV-YZ-wlu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qaR-6G-HSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="393"/>
+        </scene>
+        <!--Geocoding Map View Controller-->
+        <scene sceneID="NLU-ul-1Ta">
+            <objects>
+                <viewController id="Az4-Pc-235" customClass="GeocodingMapViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ucc-ke-0zl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wuf-YA-6Dy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Az4-Pc-235" id="xIb-7b-dXH"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wuf-YA-6Dy" firstAttribute="top" secondItem="Ucc-ke-0zl" secondAttribute="top" id="6lQ-M0-sAn"/>
+                            <constraint firstAttribute="bottom" secondItem="wuf-YA-6Dy" secondAttribute="bottom" id="M8O-4t-Zm9"/>
+                            <constraint firstItem="wuf-YA-6Dy" firstAttribute="leading" secondItem="w28-CA-E5b" secondAttribute="leading" id="UGi-7x-HcP"/>
+                            <constraint firstItem="wuf-YA-6Dy" firstAttribute="trailing" secondItem="w28-CA-E5b" secondAttribute="trailing" id="y92-Ai-gNS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w28-CA-E5b"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="wuf-YA-6Dy" id="Imx-a8-9Lk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfo-Mq-sEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="393"/>
+        </scene>
+        <!--VT Directions-->
+        <scene sceneID="pyK-C5-gDe">
+            <objects>
+                <navigationController id="pet-1r-uin" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="VT Directions" image="TabBarIcon-VTDirections" id="MGT-gG-jKo"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rgo-Ng-PTO">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VRn-2T-MwT" kind="relationship" relationship="rootViewController" id="Hrk-Wg-wfW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVy-mm-bTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578" y="-350"/>
+        </scene>
+        <!--Get VT Directions-->
+        <scene sceneID="LAg-yw-k1q">
+            <objects>
+                <viewController id="VRn-2T-MwT" customClass="VTDirectionsViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lBO-QP-ZRS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-XE-QoS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Get VT Directions" id="Zt3-hF-rAc"/>
+                                </items>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xM-ZZ-j2a">
+                                <rect key="frame" x="10" y="68" width="300" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VRn-2T-MwT" id="Lew-p2-nxZ"/>
+                                    <outlet property="delegate" destination="VRn-2T-MwT" id="N2S-BO-GXq"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected VT place FROM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ix-O8-Rus">
+                                <rect key="frame" x="10" y="272" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected VT place TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZK-TE-DIE">
+                                <rect key="frame" x="10" y="335" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Directions via" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v65-lX-9JY">
+                                <rect key="frame" x="10" y="444" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xxm-Yr-mv0">
+                                <rect key="frame" x="60" y="471" width="200" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Driving"/>
+                                    <segment title="Walking"/>
+                                </segments>
+                                <connections>
+                                    <action selector="getDirectionsOnCampus:" destination="VRn-2T-MwT" eventType="valueChanged" id="cyq-O2-Tqs"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kG-nG-Ux4">
+                                <rect key="frame" x="10" y="240" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set VT place selected above as From"/>
+                                <connections>
+                                    <action selector="setFromButtonTapped:" destination="VRn-2T-MwT" eventType="touchUpInside" id="gZk-P9-5KP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLZ-Qb-bP0">
+                                <rect key="frame" x="10" y="303" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set VT place selected above as To"/>
+                                <connections>
+                                    <action selector="setToButtonTapped:" destination="VRn-2T-MwT" eventType="touchUpInside" id="hMx-9s-jMh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oC3-xG-fbV">
+                                <rect key="frame" x="10" y="385" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear Selections"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="VRn-2T-MwT" eventType="touchUpInside" id="rY1-NQ-gfP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="rs1-ug-MLx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Get VT Directions" id="sF6-mU-wM1"/>
+                    <connections>
+                        <outlet property="directionsTypeSegmentedControl" destination="Xxm-Yr-mv0" id="A29-yy-R0d"/>
+                        <outlet property="pickerView" destination="9xM-ZZ-j2a" id="ma9-Mo-jfO"/>
+                        <outlet property="setFromLabel" destination="9Ix-O8-Rus" id="pJd-Yv-Akd"/>
+                        <outlet property="setToLabel" destination="GZK-TE-DIE" id="s7E-9q-OZQ"/>
+                        <segue destination="keU-ro-OLw" kind="show" identifier="CampusDirections" id="5DU-3q-hiy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5c-pd-eTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469" y="-339"/>
+        </scene>
+        <!--Directions Map View Controller-->
+        <scene sceneID="9XW-lm-Myj">
+            <objects>
+                <viewController id="keU-ro-OLw" customClass="VTDirectionsMapViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KSG-ua-tm7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A8P-2B-Ken">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="keU-ro-OLw" id="9Lx-8g-wqL"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="A8P-2B-Ken" firstAttribute="top" secondItem="KSG-ua-tm7" secondAttribute="top" id="8TO-Ps-AGo"/>
+                            <constraint firstAttribute="bottom" secondItem="A8P-2B-Ken" secondAttribute="bottom" id="P3q-U4-Cgp"/>
+                            <constraint firstItem="A8P-2B-Ken" firstAttribute="leading" secondItem="Uq5-s5-Xo4" secondAttribute="leading" id="Un8-0B-94P"/>
+                            <constraint firstItem="A8P-2B-Ken" firstAttribute="trailing" secondItem="Uq5-s5-Xo4" secondAttribute="trailing" id="g2R-d4-W8Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uq5-s5-Xo4"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="A8P-2B-Ken" id="wZf-qO-Hjo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6cf-cm-Zn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283.75" y="-333.80281690140845"/>
+        </scene>
+        <!--My Location-->
+        <scene sceneID="wc0-kS-tS8">
+            <objects>
+                <navigationController id="iCU-UX-yHV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Location" image="TabBarIcon-CurrentLocation" id="mi4-Q5-u2R"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hVK-Vv-W3I">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9l5-9e-eUB" kind="relationship" relationship="rootViewController" id="xUr-Uh-lQu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQV-fM-306" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-849" y="538"/>
+        </scene>
+        <!--My Current Location-->
+        <scene sceneID="Hrr-WC-wd5">
+            <objects>
+                <viewController id="9l5-9e-eUB" customClass="CurrentLocationViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Hh-cF-xeu" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-ib-EGX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="My Current Location" id="qDQ-A3-e9j"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Map Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-by-HQi">
+                                <rect key="frame" x="10" y="99" width="300" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-uJ-gMe">
+                                <rect key="frame" x="20" y="128" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Statellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYK-gG-TGj">
+                                <rect key="frame" x="10" y="269" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show My Current Location on Map"/>
+                                <connections>
+                                    <action selector="showCurrentLocationOnMap:" destination="9l5-9e-eUB" eventType="touchUpInside" id="Bq2-8K-MzU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="7aR-7R-FdQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Current Location" id="59k-d4-13d"/>
+                    <connections>
+                        <outlet property="mapTypeSegmentedControl" destination="Igm-uJ-gMe" id="nrc-9P-6aa"/>
+                        <segue destination="EcA-tA-1qQ" kind="show" identifier="My Current Location" id="Cya-c8-tvc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgM-RB-10H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="538"/>
+        </scene>
+        <!--Current Location On Map View Controller-->
+        <scene sceneID="ebH-4L-euq">
+            <objects>
+                <viewController id="EcA-tA-1qQ" customClass="CurrentLocationOnMapViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j2V-l1-QYr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Edn-Hy-CNa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="563"/>
+                                <connections>
+                                    <outlet property="delegate" destination="EcA-tA-1qQ" id="QG0-CE-4tZ"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Edn-Hy-CNa" firstAttribute="trailing" secondItem="7s9-4Q-COf" secondAttribute="trailing" id="G7F-Da-Oa3"/>
+                            <constraint firstItem="Edn-Hy-CNa" firstAttribute="top" secondItem="j2V-l1-QYr" secondAttribute="top" id="QIy-7d-MnR"/>
+                            <constraint firstAttribute="bottom" secondItem="Edn-Hy-CNa" secondAttribute="bottom" constant="5" id="arw-M5-Byk"/>
+                            <constraint firstItem="Edn-Hy-CNa" firstAttribute="leading" secondItem="7s9-4Q-COf" secondAttribute="leading" id="dUi-bs-ABY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7s9-4Q-COf"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Edn-Hy-CNa" id="efR-Va-Tuo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VM7-Lv-Vdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="498.75" y="1255.9859154929577"/>
+        </scene>
+        <!--VT Map-->
+        <scene sceneID="Xa2-cn-3dR">
+            <objects>
+                <viewController id="GfW-zF-P12" customClass="VTMapViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NYf-DX-oj5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fHr-aQ-OWi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GfW-zF-P12" id="09T-36-yaP"/>
+                                </connections>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="huZ-3R-pru">
+                                <rect key="frame" x="20" y="20" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setMapType:" destination="GfW-zF-P12" eventType="valueChanged" id="AAA-Ew-4zU"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="9p9-Ua-3z6"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="VT Map" image="TabBarIcon-VTMap" id="ML6-lS-fqh"/>
+                    <connections>
+                        <outlet property="mapView" destination="fHr-aQ-OWi" id="xIU-Kq-8Lq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BMJ-Dp-b5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144.375" y="-1153.5211267605634"/>
+        </scene>
+        <!--VT Places-->
+        <scene sceneID="duZ-yt-dvf">
+            <objects>
+                <tableViewController id="ajk-EE-ZRJ" customClass="VTPlacesTableViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h3i-66-4up">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VTPlaces" textLabel="4LH-cc-HGU" detailTextLabel="P9A-rJ-qis" style="IBUITableViewCellStyleSubtitle" id="QwO-pb-40q">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QwO-pb-40q" id="Tqn-4s-Gdw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4LH-cc-HGU">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P9A-rJ-qis">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ajk-EE-ZRJ" id="Pvz-Up-QJP"/>
+                            <outlet property="delegate" destination="ajk-EE-ZRJ" id="dUy-Em-AO7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="VT Places" id="KDs-GO-c6k"/>
+                    <connections>
+                        <segue destination="cGp-26-fBo" kind="show" identifier="vtPlaceInfo" id="anP-wS-Xt7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aac-iM-CyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="-1154"/>
+        </scene>
+        <!--Place Info View Controller-->
+        <scene sceneID="YWd-76-Xu8">
+            <objects>
+                <viewController id="cGp-26-fBo" customClass="VTPlaceInfoViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gVp-eA-nBo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VT Place Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AED-Cp-V9T">
+                                <rect key="frame" x="10" y="70" width="300" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lz9-0b-ukf">
+                                <rect key="frame" x="85" y="95" width="150" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Abbrev." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-TZ-Qya">
+                                <rect key="frame" x="240" y="149" width="75" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VT Place Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbJ-Xj-EcC">
+                                <rect key="frame" x="10" y="229" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d5K-cd-VYK">
+                                <rect key="frame" x="16" y="260" width="288" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show On Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O6-fM-1EZ">
+                                <rect key="frame" x="100" y="458" width="120" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="36e-br-NM7">
+                                <rect key="frame" x="20" y="481" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setMapType:" destination="cGp-26-fBo" eventType="valueChanged" id="Uvs-gD-kuI"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="psl-We-Hc9"/>
+                    </view>
+                    <connections>
+                        <outlet property="buildingAbbreviatedNameLabel" destination="JX2-TZ-Qya" id="Fwa-wO-SXG"/>
+                        <outlet property="buildingCategoryNameLabel" destination="zbJ-Xj-EcC" id="Rzk-0V-1Ue"/>
+                        <outlet property="buildingDescriptionTextView" destination="d5K-cd-VYK" id="tlY-h3-pEO"/>
+                        <outlet property="buildingImageView" destination="Lz9-0b-ukf" id="8Lm-YJ-HFX"/>
+                        <outlet property="buildingNameLabel" destination="AED-Cp-V9T" id="VEF-A8-4cB"/>
+                        <outlet property="mapTypeSegmentedControl" destination="36e-br-NM7" id="TjK-Le-JEh"/>
+                        <segue destination="tdf-8f-atZ" kind="show" identifier="vtPlaceOnMap" id="UJi-Wo-FmF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RxA-SH-1L0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2221.5999999999999" y="-1152.7736131934034"/>
+        </scene>
+        <!--Place On Map View Controller-->
+        <scene sceneID="yqD-YW-2R0">
+            <objects>
+                <viewController id="tdf-8f-atZ" customClass="VTPlaceOnMapViewController" customModule="VTQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V12-xP-ynw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RN4-3N-vQR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tdf-8f-atZ" id="iea-UL-GdX"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RN4-3N-vQR" firstAttribute="top" secondItem="V12-xP-ynw" secondAttribute="top" id="Wi4-Tg-wfw"/>
+                            <constraint firstAttribute="bottom" secondItem="RN4-3N-vQR" secondAttribute="bottom" id="boq-Ba-30F"/>
+                            <constraint firstItem="RN4-3N-vQR" firstAttribute="leading" secondItem="MGS-hU-wJC" secondAttribute="leading" id="mc4-wc-mdo"/>
+                            <constraint firstItem="RN4-3N-vQR" firstAttribute="trailing" secondItem="MGS-hU-wJC" secondAttribute="trailing" id="nVu-dF-i28"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MGS-hU-wJC"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="RN4-3N-vQR" id="4pt-26-O5z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbi-J7-hkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2983" y="-1151"/>
+        </scene>
+        <!--VT Places-->
+        <scene sceneID="atz-nL-siD">
+            <objects>
+                <navigationController id="Ezh-Ys-PIY" customClass="VT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="VT Places" image="TabBarIcon-VTPlaces" id="qs4-sZ-H9k"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5dx-MQ-at7">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ajk-EE-ZRJ" kind="relationship" relationship="rootViewController" id="yrG-6g-ikK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sK-ys-SdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="-1154"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LZh-XX-D3D">
+            <objects>
+                <tabBarController id="bqP-Yk-fhH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x7D-y5-YfH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="GfW-zF-P12" kind="relationship" relationship="viewControllers" id="HUc-4V-duy"/>
+                        <segue destination="Ezh-Ys-PIY" kind="relationship" relationship="viewControllers" id="Smj-DK-xha"/>
+                        <segue destination="pet-1r-uin" kind="relationship" relationship="viewControllers" id="lgi-Yv-TBP"/>
+                        <segue destination="uGj-jf-N1H" kind="relationship" relationship="viewControllers" id="ylb-RP-QBv"/>
+                        <segue destination="iCU-UX-yHV" kind="relationship" relationship="viewControllers" id="bwY-vS-gVA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VdJ-2f-yPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718" y="-325"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TabBarIcon-CurrentLocation" width="30" height="30"/>
+        <image name="TabBarIcon-Geocoding" width="30" height="30"/>
+        <image name="TabBarIcon-VTDirections" width="30" height="30"/>
+        <image name="TabBarIcon-VTMap" width="30" height="30"/>
+        <image name="TabBarIcon-VTPlaces" width="30" height="30"/>
+    </resources>
+</document>
